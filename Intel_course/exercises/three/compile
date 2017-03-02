@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc -o $HOME/examples/course/bin/three three.c

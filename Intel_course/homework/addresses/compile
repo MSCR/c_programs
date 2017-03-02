@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc -o $HOME/examples/course/bin/hw_addrs hw_addrs.c
