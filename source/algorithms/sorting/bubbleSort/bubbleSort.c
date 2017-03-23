@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "../commonMethods.h"
 
 /* Bubble Sort implementation for 
  * only numbers.
@@ -8,9 +6,6 @@
 
 void bubbleSort(int, int *);
 void eBubbleSort(int, int *);
-void swap(int *, int *);
-void copyArray(int, char *,int *);
-void printArray(int, int *);
 
 void main(int argc, char *argv[]){
 
@@ -23,6 +18,7 @@ void main(int argc, char *argv[]){
 	copyArray(sizeArray, *(argv+1), buffer);
 
 	// Print Unsortered array
+	printf("Original list: ");
 	printArray(sizeArray, buffer);
 
 	// Sort Unsortered array
@@ -30,6 +26,7 @@ void main(int argc, char *argv[]){
 	eBubbleSort(sizeArray, buffer);
 
 	// Print Ordered array
+	printf("Sorted list: ");
 	printArray(sizeArray, buffer);
 
 	// Free requested memory
@@ -37,25 +34,6 @@ void main(int argc, char *argv[]){
 
 }
 
-void copyArray(int size, char *src, int *dst){
-/* This method converts the parameters from
- * src, which are char into int and save them
- * in dst.
-*/
-	for(int index = 0; index < size; index++){
-		*(dst+index) = atoi(src+(index*2));  
-		//dst[i] = scr[i];	// Another possible solution.
-	}
-	return;
-}
-
-void printArray(int size, int *list){
-/* This method prints the array list of size size. */
-	for (int index = 0; index<size; index++ ){
-		printf("%d%c", *(list+index), (index<size-1)? ' ': '\n');
-	}
-	return;
-}
 
 void bubbleSort(int size, int *list){
 /* This method implements Bubble Sort algoritm with
@@ -89,15 +67,4 @@ void eBubbleSort(int size, int *list){
 		// Update i to the last index with change
 		i = change;
 	}
-}
-
-void swap(int *e1, int *e2){
-/* This method implements a swapping between two addresses. */ 
-	int temp;
-
-	temp = *e1;
-	*e1 = *e2;
-	*e2 = temp;
-
-	return;
 }
